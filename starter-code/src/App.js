@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import contacts from './contacts.json'
+import Header from './components/Header'
+import Table from './components/Table'
 
 class App extends Component {
 
@@ -21,7 +24,7 @@ class App extends Component {
     const randNum = Math.floor(Math.random() * contacts.length);
     const contactsArrCopy = [...this.state.contactsArr]
 
-    contactsArrCopy.push(contacts[randnum])
+    contactsArrCopy.push(contacts[randNum])
     contacts.splice(randNum, 1)
 
 
@@ -33,7 +36,7 @@ class App extends Component {
 
   sortByName() {
     const contactsArrCopy = [...this.state.contactsArr]
-    constactsArrCopy.sort((a, b) => a.name.localeCompare(b.name))
+    contactsArrCopy.sort((a, b) => a.name.localeCompare(b.name))
     
     this.setState({
       contactsArr: contactsArrCopy,
@@ -42,7 +45,7 @@ class App extends Component {
 
   sortByPopularity() {
     const contactsArrCopy = [...this.state.contactsArr]
-    constactsArrCopy.sort((a, b) => b.popularity - a.popularity)
+    contactsArrCopy.sort((a, b) => b.popularity - a.popularity)
     
     this.setState({
       contactsArr:  contactsArrCopy,
@@ -56,7 +59,7 @@ class App extends Component {
     contactsArrCopy.splice(idx, 1)
     
     this.setState({
-      contactsArr: constactsArrCopy,
+      contactsArr: contactsArrCopy,
     })
   }
 
